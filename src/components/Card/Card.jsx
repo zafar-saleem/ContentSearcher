@@ -1,5 +1,5 @@
 import { Stack } from '@chakra-ui/react';
-import React, { createContext } from 'react';
+import React from 'react';
 import {
 	CardMedia,
 	CardHeader,
@@ -7,7 +7,7 @@ import {
 	CardExpert,
 } from './components';
 
-import { StyledImage, StyledBox } from './Card.styled';
+import { StyledBox } from './Card.styled';
 
 const Card = (props) => {
   return (
