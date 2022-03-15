@@ -1,4 +1,4 @@
-import { Input, Text, Image } from '@chakra-ui/react';
+import { Image } from '@chakra-ui/react';
 import styled from 'styled-components';
 
 export const Container = styled.div`

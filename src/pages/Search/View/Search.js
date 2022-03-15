@@ -7,7 +7,6 @@ import {
 	StyledTitle,
 } from './Search.styled';
 import { SearchField, Card, Loader } from '../../../components/';
-import { Image, AspectRatio } from '@chakra-ui/react';
 
 export const Search = ({
 	contents,

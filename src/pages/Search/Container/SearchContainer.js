@@ -14,6 +14,7 @@ export const SearchContainer = ({
 			if (content.hasOwnProperty('image')) {
 				return Object.assign({}, content, {url: addStr(content.image.uri)});
 			}
+			return null;
 		}).filter(Boolean));
 	}, [contents]);
 
