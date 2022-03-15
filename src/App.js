@@ -1,4 +1,10 @@
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { ChakraProvider } from '@chakra-ui/react';
+import { SearchPage } from './pages/Search/';
+import { EventDispatcher } from './EventDispatcher/';
+
+window['ContentSearcherApp'] = {};
+window.ContentSearcherApp.events = EventDispatcher()();
 
 const client = new ApolloClient({
 	uri: process.env.REACT_APP_URI,
@@ -9,7 +15,9 @@ function App() {
   return (
     <div>
       <ApolloProvider client={client}>
-				<h1>COntents</h1>
+      	<ChakraProvider>
+      		<SearchPage />
+    		</ChakraProvider>
 			</ApolloProvider>
     </div>
   );
