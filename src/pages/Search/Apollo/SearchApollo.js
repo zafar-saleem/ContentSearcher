@@ -9,7 +9,7 @@ export const SearchApollo = () => {
 		variables: {
 			filter: {
 				limit: 20,
-				keywords: searchString,
+				keywords: '',
 				types: ['PODCAST'],
 			}
 		},
