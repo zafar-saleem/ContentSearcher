@@ -4,7 +4,7 @@ import { SearchPage } from './pages/Search/';
 import { EventDispatcher } from './EventDispatcher/';
 
 window['ContentSearcherApp'] = {};
-window.ContentSearcherApp.events = EventDispatcher()();
+window.ContentSearcherApp.Events = EventDispatcher()();
 
 const client = new ApolloClient({
 	uri: process.env.REACT_APP_URI,
