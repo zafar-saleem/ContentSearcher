@@ -8,10 +8,16 @@ import {
 } from './Search.styled';
 import { SearchField, Card, Loader } from '../../../components/';
 
+const AVATAR_URI = process.env.REACT_APP_AVATAR;
+
 export const Search = ({
 	contents,
 	loading,
 }) => {
+	const handleImgError = (event, name) => {
+		event.target.src = `${AVATAR_URI}?name=${name}&size=512&background=random`;
+	}
+
 	return (
 		<Container>
 			<Wrapper>
@@ -29,6 +35,7 @@ export const Search = ({
 					        	maxHeight="400px"
 					          src={content?.url}
 					          alt={content?.url}
+					          onError={(event) => handleImgError(event, content.name)}
 					        />
 								</Card.CardMedia>
 								<Card.CardSubheader>

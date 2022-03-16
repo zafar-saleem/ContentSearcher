@@ -3,13 +3,19 @@ import { debounce } from 'lodash';
 import { TRIGGER_SEARCH } from '../../../../Configs/';
 
 export const SearchInput = () => {
-
+	const { Events } = window.ContentSearcherApp;
 	const handleChange = (event) => {
 		debouncedSearch(event.target.value);
 	};
 
 	const debouncedSearch = debounce((searchString) => {
-		window.ContentSearcherApp.events.dispatch(TRIGGER_SEARCH, { searchString });
+		Events.dispatch(
+			TRIGGER_SEARCH, {
+				searchString,
+			}
+		);
+
+		return () => Events.destroy(TRIGGER_SEARCH);
 	}, 300);
 
 	return (

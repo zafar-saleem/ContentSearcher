@@ -7,29 +7,30 @@ export const SearchContainer = ({
 	setSearch,
 	loading,
 }) => {
+	const { Events } = window.ContentSearcherApp;
 	const [data, setData] = useState([]);
 
 	useEffect(() => {
-		setData((prev) => contents?.map(content => {
+		setData((prev) => manipulateData(contents));
+	}, [contents]);
+
+	useEffect(() => {
+		Events.listen(TRIGGER_SEARCH, handleChange);
+
+		return () => Events.destroy(TRIGGER_SEARCH);
+	}, []);
+
+	const manipulateData = (data) => {
+		return data?.map(content => {
 			if (content.hasOwnProperty('image')) {
 				return Object.assign({}, content, {url: addStr(content.image.uri)});
 			}
 			return null;
-		}).filter(Boolean));
-	}, [contents]);
-
-	useEffect(() => {
-		window.ContentSearcherApp.events.listen(TRIGGER_SEARCH, handleChange);
-	}, []);
+		}).filter(Boolean);
+	}
 
 	const addStr = (url) => {
-		if (url.includes('io')) {
-			return url.replace('io', 'io/resize/250x');
-		}
-
-		if (url.includes('com')) {
-			return url.replace('com', 'com/resize/250x');
-		}
+		return url.replace(/(https?:\/\/.*?)\//, '$1/resize/250x/');
 	}
 
 	const handleChange = ({ searchString }) => {
