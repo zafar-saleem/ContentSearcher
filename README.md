@@ -38,6 +38,8 @@ Below is the tech stack I used in this project. Please follow the getting starte
 ## Live Demo
 To view live demo please [click here](https://contentsearcher.herokuapp.com/).
 
+To view live Screencast please [click here](https://youtu.be/CL24zXK3FNY).
+
 To view list of CI/CD workflows/pipelines [click here](https://github.com/zafar-saleem/ContentSearcher/actions).
 
 To view DevOps diagram [click here](https://app.terrastruct.com/diagrams/848258712).
